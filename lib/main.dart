@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         ),
         body: TabBarView(
           children: [
-            ListView(
+            Column(
               children: [
                 Card(
                   elevation: 4,
@@ -47,6 +48,15 @@ class _HomePageState extends State<HomePage> {
                     leading: const CircleAvatar(child: Icon(Icons.person)),
                     title: const Text("Irfhan"),
                     subtitle: const Text("Bro! Ngantuk ya mapel ini..."),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => const DetailChat(nama: "Irfhan"),
+                        ),
+                      );
+                    },
                     trailing: const Text(
                       "50",
                       style: TextStyle(color: Colors.green),
@@ -59,10 +69,15 @@ class _HomePageState extends State<HomePage> {
                     leading: const CircleAvatar(child: Icon(Icons.person)),
                     title: const Text("Budi"),
                     subtitle: const Text("Semangat ya"),
-                    trailing: const Text(
-                      "49",
-                      style: TextStyle(color: Colors.green),
-                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DetailChat(nama: "Budi"),
+                        ),
+                      );
+                    },
+                    trailing: const Text("49"),
                   ),
                 ),
               ],
